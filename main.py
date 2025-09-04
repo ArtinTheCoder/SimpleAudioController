@@ -17,7 +17,7 @@ pot1_mute_status = False
 pot2_mute_status = False
 
 MIC_NAME = "YOUR_MIC_NAME"  # Print the "d" in the for loop to find your mic's exact name. 
-source_name = 'YOUR_OBS_SOURCE_NAME' 
+SOURCE_NAME = 'YOUR_OBS_SOURCE_NAME' 
 
 def set_volume(name: str, percent: int, mute: bool):
     comtypes.CoInitialize()  
@@ -51,7 +51,7 @@ def receive_data():
     pot2_mute_status = data['button2_state']
 
     set_volume(MIC_NAME, pot1, pot1_mute_status)
-    slider_to_db(pot2, pot2_mute_status, source_name)
+    slider_to_db(pot2, pot2_mute_status, SOURCE_NAME)
 
     return {"status": "ok"}, 200
 
